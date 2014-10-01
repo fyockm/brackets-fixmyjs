@@ -76,6 +76,8 @@
     // Custom Globals
     "globals": {
       "brackets"    : false,
+      "JSHINT"      : false,
+      "fixMyJS"     : false,
       "define"      : false,
       "describe"    : false,
       "it"          : false,

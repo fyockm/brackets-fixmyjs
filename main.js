@@ -7,7 +7,7 @@ define(function(require, exports, module) {
   'use strict';
 
   /* Globals */
-  var COMMAND_ID = 'com.steelbisondev.fixmyjs',
+  var COMMAND_ID = 'steelbisondev.fixmyjs',
     COMMAND_SAVE_ID = COMMAND_ID + '.autosave',
     COMMAND_TIMESTAMP = COMMAND_ID + '-timeStamp',
     CONTEXTUAL_COMMAND_ID = COMMAND_ID + 'Contextual';
@@ -23,9 +23,11 @@ define(function(require, exports, module) {
     DocumentManager = brackets.getModule('document/DocumentManager'),
     PreferencesManager = brackets.getModule('preferences/PreferencesManager');
 
-  /* Formatters */
-  var fixmyjs = require('fixmyjs');
-  var jshint = require('jshint');
+  /* thirdparty */
+  require('thirdparty/fixmyjs/lib/legacy');
+  var fixmyjs = fixMyJS;
+  require('thirdparty/jshint/dist/jshint');
+  var jshint = JSHINT;
 
   /* Variables */
   var fixmyjsOnSave,
@@ -35,11 +37,11 @@ define(function(require, exports, module) {
     debugPreferences = PreferencesManager.getExtensionPrefs('debug'),
     fixmyjsPreferences = PreferencesManager.getExtensionPrefs(COMMAND_ID),
     windowsCommand = {
-      key: 'Ctrl-Alt-Shift-F',
+      key: 'Alt-Shift-L',
       platform: 'win'
     },
     macCommand = {
-      key: 'Cmd-Alt-Shift-F',
+      key: 'Alt-Shift-L',
       platform: 'mac'
     },
     command = [windowsCommand, macCommand];
@@ -227,7 +229,6 @@ define(function(require, exports, module) {
     });
 
     loadConfig();
-
   });
 
 });
