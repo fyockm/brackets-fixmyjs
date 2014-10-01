@@ -1,0 +1,7 @@
+[submodule "thirdparty/jshint"]
+	path = thirdparty/jshint
+	url = git://github.com/jshint/jshint.git
+
+[submodule "thirdparty/fixmyjs"]
+	path = thirdparty/fixmyjs
+	url = git://github.com/jshint/fixmyjs.git

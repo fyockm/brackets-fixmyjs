@@ -1,0 +1,18 @@
+{
+  "name": "brackets-fixmyjs",
+  "title": "FixMyJS",
+  "version": "0.0.1",
+  "description": "Automagically fix JSHint lint warnings",
+  "homepage": "https://github.com/fyockm/brackets-fixmyjs",
+  "author": "Drew Fyock <drew@steelbisondev.com> (http://www.steelbisondev.com)",
+  "license": "MIT",
+  "categories": "linting",
+  "keywords": ["lint", "linting", "linter", "fixmyjs"],
+  "files": [
+    "main.js",
+    "settings.json"
+  ],
+  "engines": {
+    "brackets": ">=0.38.0"
+  }
+}
