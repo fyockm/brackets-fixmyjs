@@ -16,7 +16,7 @@ Download zip and extract into arbitrary directory (or clone source files), then 
 
 ##Usage
 
-`Edit > FixMyJS` menu or ?? key.
+`Edit > FixMyJS` menu or `Cmd-Alt-Shift-F(Mac) / Ctrl-Alt-Shift-F(Win)` key.
 
 <img src="https://cloud.githubusercontent.com/assets/170270/4474662/ceab387a-4962-11e4-99ab-17dd5c44847c.gif" width="399">
 

@@ -113,7 +113,6 @@ define(function(require, exports, module) {
   /**
    * Format
    */
-
   function format(autoSave) {
     var indentChar, indentSize, formattedText;
     var unformattedText, isSelection = false;
