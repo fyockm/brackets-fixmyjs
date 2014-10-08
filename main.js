@@ -8,20 +8,20 @@ define(function(require, exports, module) {
 
   /* Globals */
   var COMMAND_ID = 'steelbisondev.fixmyjs',
-    COMMAND_SAVE_ID = COMMAND_ID + '.autosave',
-    COMMAND_TIMESTAMP = COMMAND_ID + '-timeStamp',
-    CONTEXTUAL_COMMAND_ID = COMMAND_ID + 'Contextual';
+      COMMAND_SAVE_ID = COMMAND_ID + '.autosave',
+      COMMAND_TIMESTAMP = COMMAND_ID + '-timeStamp',
+      CONTEXTUAL_COMMAND_ID = COMMAND_ID + 'Contextual';
 
   var Menus = brackets.getModule('command/Menus'),
-    AppInit = brackets.getModule('utils/AppInit'),
-    Commands = brackets.getModule('command/Commands'),
-    Editor = brackets.getModule('editor/Editor').Editor,
-    FileSystem = brackets.getModule('filesystem/FileSystem'),
-    EditorManager = brackets.getModule('editor/EditorManager'),
-    CommandManager = brackets.getModule('command/CommandManager'),
-    ProjectManager = brackets.getModule('project/ProjectManager'),
-    DocumentManager = brackets.getModule('document/DocumentManager'),
-    PreferencesManager = brackets.getModule('preferences/PreferencesManager');
+      AppInit = brackets.getModule('utils/AppInit'),
+      Commands = brackets.getModule('command/Commands'),
+      Editor = brackets.getModule('editor/Editor').Editor,
+      FileSystem = brackets.getModule('filesystem/FileSystem'),
+      EditorManager = brackets.getModule('editor/EditorManager'),
+      CommandManager = brackets.getModule('command/CommandManager'),
+      ProjectManager = brackets.getModule('project/ProjectManager'),
+      DocumentManager = brackets.getModule('document/DocumentManager'),
+      PreferencesManager = brackets.getModule('preferences/PreferencesManager');
 
   /* thirdparty */
   require('thirdparty/fixmyjs/lib/legacy');
@@ -79,10 +79,9 @@ define(function(require, exports, module) {
     var options = {
       'indent_size': indentSize,
       'indent_char': indentChar
-    };
-
-    var data = unformattedText;
-    var opts = $.extend(options, settings);
+    },
+        data = unformattedText,
+        opts = $.extend(options, settings);
     try {
       if (opts.legacy) {
         jshint(data, opts);
@@ -96,11 +95,11 @@ define(function(require, exports, module) {
   }
 
   function batchUpdate(formattedText, isSelection) {
-    var editor = EditorManager.getCurrentFullEditor();
-    var cursor = editor.getCursorPos();
-    var scroll = editor.getScrollPos();
-    var doc = DocumentManager.getCurrentDocument();
-    var selection = editor.getSelection();
+    var editor = EditorManager.getCurrentFullEditor(),
+        cursor = editor.getCursorPos(),
+        scroll = editor.getScrollPos(),
+        doc = DocumentManager.getCurrentDocument(),
+        selection = editor.getSelection();
     doc.batchOperation(function() {
       if (isSelection) {
         doc.replaceRange(formattedText, selection.start, selection.end);
@@ -116,9 +115,9 @@ define(function(require, exports, module) {
    * Format
    */
   function format(autoSave) {
-    var indentChar, indentSize, formattedText;
-    var unformattedText, isSelection = false;
-    var useTabs = Editor.getUseTabChar();
+    var indentChar, indentSize, formattedText,
+        unformattedText, isSelection = false,
+        useTabs = Editor.getUseTabChar();
 
     __debug(settings, 0);
     if (useTabs) {
@@ -129,8 +128,8 @@ define(function(require, exports, module) {
       indentSize = Editor.getSpaceUnits();
     }
 
-    var editor = EditorManager.getCurrentFullEditor();
-    var selectedText = editor.getSelectedText();
+    var editor = EditorManager.getCurrentFullEditor(),
+        selectedText = editor.getSelectedText();
 
     if (selectedText.length > 0) {
       isSelection = true;
@@ -139,9 +138,9 @@ define(function(require, exports, module) {
       unformattedText = DocumentManager.getCurrentDocument().getText();
     }
 
-    var doc = DocumentManager.getCurrentDocument();
-    var language = doc.getLanguage();
-    var fileType = language._id;
+    var doc = DocumentManager.getCurrentDocument(),
+        language = doc.getLanguage(),
+        fileType = language._id;
 
     switch (fileType) {
 
